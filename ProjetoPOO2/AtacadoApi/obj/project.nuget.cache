@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "H/tcgSKKF6TNn5Eudszn3ZiPvOlI5tAiZ/sGxog9TPve9MthycPbHX43zkg9RM3bzWqqTqHdYlci6cfUovQLvA==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\Marcia\\Desktop\\Aula Poo2 FW 6.0\\ProjetoPOO2\\AtacadoApi\\AtacadoApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Marcia\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.3\\microsoft.aspnetcore.openapi.7.0.3.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Marcia\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
