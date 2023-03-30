@@ -15,17 +15,22 @@ namespace Atacado.BD.EF.Database
             : base(options)
         {
         }
-
+        //Tabela Produtos no servidor do SQL
         public virtual DbSet<Categorium> Categoria { get; set; } = null!;
         public virtual DbSet<Produto> Produtos { get; set; } = null!;
         public virtual DbSet<Subcategorium> Subcategoria { get; set; } = null!;
+
+        //Material do encontro 5 Tabelas do "IBGE"
+        public virtual DbSet<Regiao> Regioes {get; set;} = null!;
+        public virtual DbSet<Estado> Estados {get; set;} = null!;
+        public virtual DbSet<Cidade> Cidades {get; set;} = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=(local);Initial Catalog=bdAtacado;User=usrAtacado;Password=senha123;TrustServerCertificate=True;");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-OSE0EHK;Initial Catalog=bdAtacadoo;User=usrAtacado;Password=senha123;TrustServerCertificate=True;");
             }
         }
 
@@ -57,6 +62,10 @@ namespace Atacado.BD.EF.Database
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Subcategoria_Categoria");
             });
+
+            modelBuilder.Entity<Regiao>();
+            modelBuilder.Entity<Estado>();
+            modelBuilder.Entity<Cidade>();
 
             OnModelCreatingPartial(modelBuilder);
         }
