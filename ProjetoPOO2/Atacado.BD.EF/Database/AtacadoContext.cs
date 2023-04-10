@@ -16,15 +16,18 @@ namespace Atacado.BD.EF.Database
         {
         }
         //Tabela Produtos no servidor do SQL
-        public virtual DbSet<Categorium> Categoria { get; set; } = null!;
+        public virtual DbSet<Categoria> Categorias { get; set; } = null!;
         public virtual DbSet<Produto> Produtos { get; set; } = null!;
-        public virtual DbSet<Subcategorium> Subcategoria { get; set; } = null!;
+        public virtual DbSet<Subcategoria> Subcategorias { get; set; } = null!;
 
         //Material do encontro 5 Tabelas do "IBGE"
         public virtual DbSet<Regiao> Regioes {get; set;} = null!;
         public virtual DbSet<Estado> Estados {get; set;} = null!;
         public virtual DbSet<Cidade> Cidades {get; set;} = null!;
 
+        // Material do encontro 6 tabelas "Area de conhecimento" e "banco"
+        public virtual DbSet<AreaConhecimento> Areas {get; set;} = null!;
+        public virtual DbSet<Banco> Bancos {get; set;} = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -36,7 +39,7 @@ namespace Atacado.BD.EF.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categorium>(entity =>
+            modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
             });
@@ -44,28 +47,19 @@ namespace Atacado.BD.EF.Database
             modelBuilder.Entity<Produto>(entity =>
             {
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
-
-                entity.HasOne(d => d.CodigoSubcategoriaNavigation)
-                    .WithMany(p => p.Produtos)
-                    .HasForeignKey(d => d.CodigoSubcategoria)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Produto_Subcategoria");
             });
 
-            modelBuilder.Entity<Subcategorium>(entity =>
+            modelBuilder.Entity<Subcategoria>(entity =>
             {
                 entity.Property(e => e.DataInclusao).HasDefaultValueSql("(getdate())");
 
-                entity.HasOne(d => d.CodigoCategoriaNavigation)
-                    .WithMany(p => p.Subcategoria)
-                    .HasForeignKey(d => d.CodigoCategoria)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Subcategoria_Categoria");
             });
 
             modelBuilder.Entity<Regiao>();
             modelBuilder.Entity<Estado>();
             modelBuilder.Entity<Cidade>();
+            modelBuilder.Entity<AreaConhecimento>();
+            modelBuilder.Entity<Banco>();
 
             OnModelCreatingPartial(modelBuilder);
         }
